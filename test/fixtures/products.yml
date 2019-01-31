@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  status: MyString
+  price: 1
+  type: 
+  entry_date: 2019-01-30
+  sale_date: 2019-01-30
+  payment_method: MyString
+  payment_status: MyString
+
+two:
+  status: MyString
+  price: 1
+  type: 
+  entry_date: 2019-01-30
+  sale_date: 2019-01-30
+  payment_method: MyString
+  payment_status: MyString
