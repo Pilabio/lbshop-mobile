@@ -1,0 +1,21 @@
+nav.navbar.navbar-expand-lg.navbar-light.bg-light.rounded
+  .navbar-brand
+    = yield :title
+  button.navbar-toggler.collapsed aria-controls="navbarsExample09" aria-expanded="false" aria-label=("Toggle navigation") data-target="#navbarsExample09" data-toggle="collapse" type="button"
+    span.navbar-toggler-icon
+  #navbarsExample09.navbar-collapse.collapse style=""
+    ul.navbar-nav.mr-auto
+      li.nav-item.active
+        a.nav-link href="#"
+          | Home
+          span.sr-only (current)
+      li.nav-item
+        a.nav-link href="#"  Link
+      li.nav-item
+        a.nav-link.disabled href="#"  Disabled
+      li.nav-item.dropdown
+        a#dropdown09.nav-link.dropdown-toggle aria-expanded="false" aria-haspopup="true" data-toggle="dropdown" href="https://example.com"  Dropdown
+        .dropdown-menu aria-labelledby="dropdown09"
+          a.dropdown-item href="#"  Action
+          a.dropdown-item href="#"  Another action
+          a.dropdown-item href="#"  Something else here
