@@ -1,0 +1,16 @@
+- content_for :title do 'Clientes' end
+
+nav.navbar.navbar-light.bg-light.rounded
+  form.form-inline.w-75
+    .input-group
+      input.form-control placeholder="Username" type="text" /
+      .input-group-append
+        span.input-group-text ?
+
+  = link_to new_client_path, class: 'btn-icon btn btn-secondary'
+    i.icon.material-icons add
+
+.container
+  .card
+    .card-body
+      | Ainda não existem clientes

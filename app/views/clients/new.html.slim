@@ -1,0 +1,14 @@
+= content_for :title do 'Novo cliente' end
+
+.row
+  .col-md-6.col-12.mx-auto
+    .card
+      .card-header Login
+      .card-body
+        = simple_form_for(@client) do |f|
+          .form-group
+            = f.input :name, class: 'form-control', placeholder: 'Nome', label: false
+          .form-group
+            = f.input :phone, class: 'form-control', placeholder: 'Telefone', label: false
+
+          button.btn.btn-primary type="submit"  Cadastrar
