@@ -3,7 +3,11 @@
 .row
   .col-md-6.col-12.mx-auto
     .card
-      .card-header Login
+      .card-header
+        | Cadastro
+        = link_to clients_path, class: 'btn btn-primary btn-sm btn-back float-right'
+          i.btn-back-icon.material-icons keyboard_arrow_left
+          | Voltar
       .card-body
         = simple_form_for(@client) do |f|
           .form-group

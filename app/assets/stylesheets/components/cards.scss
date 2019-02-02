@@ -1,0 +1,19 @@
+.client-card--body .w-100 {
+  height: 46px;
+  margin-top: 2rem;
+
+  :first-child {
+    margin-right: 1rem;
+  }
+}
+
+.btn-back {
+  padding: 0.1rem 0.5rem !important;
+}
+
+.btn-back-icon {
+  font-size: 15px;
+  position: relative;
+  top: 3px;
+  right: 3px;
+}
