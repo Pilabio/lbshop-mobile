@@ -11,12 +11,14 @@
       .card-body
         = simple_form_for(@product) do |f|
           .form-group
-            = f.input :client_id, class: 'form-control', placeholder: "#{@client.name} (#{@client.lbid})", label: false, value: "#{@client.id}"
+            label.form-check-label Cliente
+            input.form-control placeholder="#{@client.name} (#{@client.lbid})" type="text" disabled=""
+            = f.input :client_id, as: :hidden, input_html: { value: "#{@client.id}" }
           .form-group
-            = f.input :type, class: 'form-control', placeholder: 'Categoria', label: false
+            = f.input :type, class: 'form-control', placeholder: 'Categoria'
           .form-group
-            = f.input :entry_date, class: 'form-control', placeholder: 'Data de entrada', label: false
+            = f.input :entry_date, class: 'form-control', placeholder: 'Data de entrada'
           .form-group
-            = f.input :price, class: 'form-control', placeholder: 'Preço', label: false
+            = f.input :price, class: 'form-control', placeholder: 'Preço'
 
           button.btn.btn-primary type="submit"  Cadastrar
