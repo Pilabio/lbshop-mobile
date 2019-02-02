@@ -24,7 +24,8 @@ nav.navbar.navbar-light.bg-light.rounded
             p = "Email: #{client.email}"
             .w-100
               .float-right
-                button.btn.btn-primary Editar
+                = link_to edit_client_path(client), class: 'btn btn-primary'
+                  | Editar
 
                 .btn-group
                   button.btn.btn-primary.dropdown-toggle type="button" data-toggle="dropdown" Produtos

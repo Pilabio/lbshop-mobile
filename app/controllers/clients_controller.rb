@@ -17,7 +17,10 @@ class ClientsController < ApplicationController
     else
       render 'new'
     end
+  end
 
+  def edit
+    @client = Client.find(params[:id])
   end
 
   private
