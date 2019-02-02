@@ -1,4 +1,6 @@
 class Client < ApplicationRecord
+  # :: Relationships
+  has_many :products
 
   # :: Callbacks
   before_create :set_lbid

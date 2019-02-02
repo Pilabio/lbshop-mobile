@@ -1,0 +1,22 @@
+= content_for :title do 'Incluir produto' end
+
+.row
+  .col-md-6.col-12.mx-auto
+    .card
+      .card-header
+        | Cadastro
+        = link_to :back, class: 'btn btn-primary btn-sm btn-back float-right'
+          i.btn-back-icon.material-icons keyboard_arrow_left
+          | Voltar
+      .card-body
+        = simple_form_for(@product) do |f|
+          .form-group
+            = f.input :client_id, class: 'form-control', placeholder: "#{@client.name} (#{@client.lbid})", label: false, value: "#{@client.id}"
+          .form-group
+            = f.input :type, class: 'form-control', placeholder: 'Categoria', label: false
+          .form-group
+            = f.input :entry_date, class: 'form-control', placeholder: 'Data de entrada', label: false
+          .form-group
+            = f.input :price, class: 'form-control', placeholder: 'Preço', label: false
+
+          button.btn.btn-primary type="submit"  Cadastrar

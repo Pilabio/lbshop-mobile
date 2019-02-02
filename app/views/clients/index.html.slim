@@ -12,7 +12,7 @@ nav.navbar.navbar-light.bg-light.rounded
 
 - if @clients.any?
   #accordion
-    - @clients.each do |client|
+    - @clients.order('lbid ASC').each do |client|
       .card.client-card
         #headingOne.card-header data-target="#collapse#{client.id}" data-toggle="collapse"
           .card-header--name
@@ -31,7 +31,7 @@ nav.navbar.navbar-light.bg-light.rounded
                   button.btn.btn-primary.dropdown-toggle type="button" data-toggle="dropdown" Produtos
                   .dropdown-menu aria-labelledby="btnGroupDrop1"
                     a.dropdown-item href="#"  Ver produtos
-                    a.dropdown-item href="#"  Add produtos
+                    = link_to 'Add produtos', new_product_path(client_id: client.id), class: 'dropdown-item'
 
 - else
   .container
