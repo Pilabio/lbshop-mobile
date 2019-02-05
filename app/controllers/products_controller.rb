@@ -20,6 +20,10 @@ class ProductsController < ApplicationController
     end
   end
 
+  def attributes
+    @attributes = current_user.products_attr_lists
+  end
+
   private
 
   def permitted_params

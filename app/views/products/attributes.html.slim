@@ -1,0 +1,17 @@
+- content_for :title do 'Adicionar atributos' end
+
+#accordion
+  - @attributes.each do |key, value|
+    .card.index-card
+      #headingOne.card-header data-target="#collapse#{key}" data-toggle="collapse"
+        .card-header--name
+          h5.mb-0 = "#{key}"
+        icon.header-icon.material-icons keyboard_arrow_down
+      .collapse id="collapse#{key}" aria-labelledby="headingOne" data-parent="#accordion"
+        .card-body.index-card--body
+          p estou aqui
+
+          .w-100
+            .float-right
+              = link_to add_attributes_path(key), method: :post, class: 'btn btn-primary'
+                | Adicionar atributo

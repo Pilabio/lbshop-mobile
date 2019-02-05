@@ -30,12 +30,6 @@ nav.navbar.navbar-light.bg-light.rounded
                 = link_to edit_product_path(product), class: 'btn btn-primary'
                   | Editar
 
-                / .btn-group
-                /   button.btn.btn-primary.dropdown-toggle type="button" data-toggle="dropdown" Produtos
-                /   .dropdown-menu aria-labelledby="btnGroupDrop1"
-                /     a.dropdown-item href="#"  Ver produtos
-                /     = link_to 'Add produtos', new_product_path(client_id: client.id), class: 'dropdown-item'
-
 - else
   .container
     .card
