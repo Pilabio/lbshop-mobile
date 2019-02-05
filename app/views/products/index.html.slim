@@ -1,0 +1,43 @@
+- content_for :title do 'Produtos' end
+
+nav.navbar.navbar-light.bg-light.rounded
+  form.form-inline.w-75
+    .input-group
+      input.form-control placeholder="Username" type="text" /
+      .input-group-append
+        i.material-icons.input-group-text search
+
+- if @products.any?
+  #accordion
+    - @products.order('created_at ASC').each do |product|
+      .card.index-card
+        #headingOne.card-header data-target="#collapse#{product.id}" data-toggle="collapse"
+          .card-header--name
+            h5.mb-0 = "(#{product.client.lbid}.#{product.lbid})"
+          icon.header-icon.material-icons keyboard_arrow_down
+        .collapse id="collapse#{product.id}" aria-labelledby="headingOne" data-parent="#accordion"
+          .card-body.index-card--body
+            p = "Categoria: #{product.kind}"
+            p = "Preço: R$ #{('%.2f' % (product.price.to_f / 100)).gsub('.', ',')}"
+            p = "Status: #{product.status}"
+            p = "Entrada: #{product.entry_date.strftime('%d-%m-%Y')}"
+            p = "Saída: #{product.sale_date.nil? ? "" : product.sale_date.strftime('%d-%m-%Y')}"
+            p = "Método de Pagamento: #{product.payment_method}"
+            p = "Status do Pagamento: #{product.payment_status}"
+
+            .w-100
+              .float-right
+                = link_to edit_product_path(product), class: 'btn btn-primary'
+                  | Editar
+
+                / .btn-group
+                /   button.btn.btn-primary.dropdown-toggle type="button" data-toggle="dropdown" Produtos
+                /   .dropdown-menu aria-labelledby="btnGroupDrop1"
+                /     a.dropdown-item href="#"  Ver produtos
+                /     = link_to 'Add produtos', new_product_path(client_id: client.id), class: 'dropdown-item'
+
+- else
+  .container
+    .card
+      .card-body
+        | Ainda não existem produtos

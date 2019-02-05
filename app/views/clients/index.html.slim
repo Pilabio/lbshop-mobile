@@ -13,13 +13,13 @@ nav.navbar.navbar-light.bg-light.rounded
 - if @clients.any?
   #accordion
     - @clients.order('lbid ASC').each do |client|
-      .card.client-card
+      .card.index-card
         #headingOne.card-header data-target="#collapse#{client.id}" data-toggle="collapse"
           .card-header--name
             h5.mb-0 = "#{client.name} (#{client.lbid})"
           icon.header-icon.material-icons keyboard_arrow_down
         .collapse id="collapse#{client.id}" aria-labelledby="headingOne" data-parent="#accordion"
-          .card-body.client-card--body
+          .card-body.index-card--body
             p = "Telefone: #{client.phone}"
             p = "Email: #{client.email}"
             .w-100
