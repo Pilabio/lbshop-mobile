@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_02_174320) do
+ActiveRecord::Schema.define(version: 2019_02_05_144811) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,7 +34,7 @@ ActiveRecord::Schema.define(version: 2019_02_02_174320) do
   create_table "products", force: :cascade do |t|
     t.string "status"
     t.integer "price"
-    t.string "type"
+    t.string "kind"
     t.date "entry_date"
     t.date "sale_date"
     t.string "payment_method"
@@ -53,6 +53,8 @@ ActiveRecord::Schema.define(version: 2019_02_02_174320) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.jsonb "products_attr_lists"
+    t.string "vis_pass"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

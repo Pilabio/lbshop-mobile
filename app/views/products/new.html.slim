@@ -15,10 +15,16 @@
             input.form-control placeholder="#{@client.name} (#{@client.lbid})" type="text" disabled=""
             = f.input :client_id, as: :hidden, input_html: { value: "#{@client.id}" }
           .form-group
-            = f.input :type, class: 'form-control', placeholder: 'Categoria'
+            = f.input :kind, collection: current_user.products_attr_lists["kind"].split(" "), class: 'form-control', placeholder: 'Categoria'
           .form-group
             = f.input :entry_date, class: 'form-control', placeholder: 'Data de entrada'
-          .form-group
-            = f.input :price, class: 'form-control', placeholder: 'Preço'
+          .form-group.js-parent-transform
+            = f.input :formatted_price,
+                input_html: { class: 'js-br-price js-nested-transform-value',
+                              data: { target: '.js-shipping-field-price' },
+                              value: f.object.price },
+                as: :string,
+                required: true
+            = f.input :price, class: 'form-control', placeholder: 'Preço', input_html: { class: 'js-shipping-field-price' }, as: :hidden
 
           button.btn.btn-primary type="submit"  Cadastrar
