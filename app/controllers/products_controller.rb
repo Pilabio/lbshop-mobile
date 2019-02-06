@@ -34,8 +34,15 @@ class ProductsController < ApplicationController
   def add_attributes
     attribute = params[:user][:products_attr_lists]
     current_user.products_attr_lists["#{params[:product_attr]}"] << attribute
+
     current_user.save
     redirect_to attributes_path
+  end
+
+  def pay_product
+    PayProductService.call(params[:product], params[:payment])
+
+    redirect_back fallback_location: { action: "index" }
   end
 
   private

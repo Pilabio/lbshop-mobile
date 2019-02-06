@@ -1,4 +1,9 @@
 class Product < ApplicationRecord
+  include ProductStateMachine
+
+  # :: Constants
+  ACCEPTED_STATUS = %w[available sold unavailable].freeze
+
   # :: Relationships
   belongs_to :client
 
