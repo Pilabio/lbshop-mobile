@@ -7,7 +7,12 @@ class ProductsController < ApplicationController
 
   def new
     @product = Product.new
-    @client = Client.find(params[:client_id])
+    
+    if params[:client_id]
+      @client = Client.find(params[:client_id])
+    else
+      @client = false
+    end
   end
 
   def create

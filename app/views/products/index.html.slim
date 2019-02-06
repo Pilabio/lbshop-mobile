@@ -7,6 +7,9 @@ nav.navbar.navbar-light.bg-light.rounded
       .input-group-append
         i.material-icons.input-group-text search
 
+  = link_to new_product_path, class: 'btn-icon btn btn-secondary'
+    i.icon.material-icons add
+
 - if @products.any?
   #accordion
     - @products.order('created_at ASC').each do |product|
