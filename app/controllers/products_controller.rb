@@ -21,7 +21,15 @@ class ProductsController < ApplicationController
   end
 
   def attributes
+    @user = current_user
     @attributes = current_user.products_attr_lists
+  end
+
+  def add_attributes
+    attribute = params[:user][:products_attr_lists]
+    current_user.products_attr_lists["#{params[:product_attr]}"] << attribute
+    current_user.save
+    redirect_to attributes_path
   end
 
   private
