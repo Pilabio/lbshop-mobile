@@ -1,11 +1,12 @@
 - content_for :title do 'Produtos' end
 
 nav.navbar.navbar-light.bg-light.rounded
-  form.form-inline.w-75
+  = search_form_for(@q, html: { class: 'form-inline w-75', id: 'index-inline-form' }) do |f|
     .input-group
-      input.form-control placeholder="Username" type="text" /
+      = f.search_field :lbid_or_status_or_client_lbid_or_client_name_cont, class: 'form-control', placeholder: 'Buscar'
       .input-group-append
-        i.material-icons.input-group-text search
+        a.js-index-submit-link href="#"
+          i.material-icons.input-group-text search
 
   = link_to new_product_path, class: 'btn-icon btn btn-secondary'
     i.icon.material-icons add

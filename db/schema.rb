@@ -21,7 +21,7 @@ ActiveRecord::Schema.define(version: 2019_02_05_175735) do
     t.string "email"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "lbid"
+    t.string "lbid"
   end
 
   create_table "payments", force: :cascade do |t|

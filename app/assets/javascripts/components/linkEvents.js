@@ -4,5 +4,9 @@ $(function() {
     $('.js-form-input--hidden').val(' ' + inputVal)
 
     $('#attribute-inline-form').submit();
-  })
+  });
+
+  $('.js-index-submit-link').on('click', function() {
+    $('#index-inline-form').submit();
+  });
 });

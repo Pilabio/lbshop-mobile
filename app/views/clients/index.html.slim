@@ -1,11 +1,12 @@
 - content_for :title do 'Clientes' end
 
 nav.navbar.navbar-light.bg-light.rounded
-  form.form-inline.w-75
+  = search_form_for(@q, html: { class: 'form-inline w-75', id: 'index-inline-form' }) do |f|
     .input-group
-      input.form-control placeholder="Username" type="text" /
+      = f.search_field :name_or_lbid_cont, class: 'form-control', placeholder: 'Buscar'
       .input-group-append
-        i.material-icons.input-group-text search
+        a.js-index-submit-link href="#"
+          i.material-icons.input-group-text search
 
   = link_to new_client_path, class: 'btn-icon btn btn-secondary'
     i.icon.material-icons add
@@ -13,7 +14,7 @@ nav.navbar.navbar-light.bg-light.rounded
 - if @clients.any?
   #accordion
     - @clients.order('lbid ASC').each do |client|
-      .card.index-card
+      .card.index-card.js-query-model data-id="#{client.id}"
         #headingOne.card-header data-target="#collapse#{client.id}" data-toggle="collapse"
           .card-header--name
             h5.mb-0 = "#{client.name} (#{client.lbid})"
@@ -30,7 +31,7 @@ nav.navbar.navbar-light.bg-light.rounded
                 .btn-group
                   button.btn.btn-primary.dropdown-toggle type="button" data-toggle="dropdown" Produtos
                   .dropdown-menu aria-labelledby="btnGroupDrop1"
-                    a.dropdown-item href="#"  Ver produtos
+                    a.dropdown-item.js-query-link href="#"  Ver produtos
                     = link_to 'Add produtos', new_product_path(client_id: client.id), class: 'dropdown-item'
 
 - else

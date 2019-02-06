@@ -19,6 +19,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'slim', '~> 4.0', '>= 4.0.1'
 gem 'devise', '~> 4.5'
 gem 'simple_form', '~> 4.1'
+gem 'ransack'
 
 gem 'bootsnap', '>= 1.1.0', require: false
 

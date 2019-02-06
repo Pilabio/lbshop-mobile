@@ -2,12 +2,13 @@ class ProductsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @products = Product.all
+    @q = Product.ransack(params[:q])
+    @products = @q.result
   end
 
   def new
     @product = Product.new
-    
+
     if params[:client_id]
       @client = Client.find(params[:client_id])
     else

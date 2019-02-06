@@ -2,7 +2,8 @@ class ClientsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @clients = Client.all
+    @q = Client.ransack(params[:q])
+    @clients = @q.result
   end
 
   def new
