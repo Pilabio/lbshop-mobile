@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_03_152551) do
+ActiveRecord::Schema.define(version: 2019_02_06_163624) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,7 +21,7 @@ ActiveRecord::Schema.define(version: 2019_02_03_152551) do
     t.string "email"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "lbid"
+    t.string "lbid"
   end
 
   create_table "payments", force: :cascade do |t|
@@ -34,7 +34,7 @@ ActiveRecord::Schema.define(version: 2019_02_03_152551) do
   create_table "products", force: :cascade do |t|
     t.string "status"
     t.integer "price"
-    t.string "type"
+    t.string "kind"
     t.date "entry_date"
     t.date "sale_date"
     t.string "payment_method"
@@ -42,6 +42,10 @@ ActiveRecord::Schema.define(version: 2019_02_03_152551) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "client_id"
+    t.string "lbid"
+    t.string "name"
+    t.string "size"
+    t.string "brand"
     t.index ["client_id"], name: "index_products_on_client_id"
   end
 

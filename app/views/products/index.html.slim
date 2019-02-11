@@ -1,0 +1,46 @@
+- content_for :title do 'Produtos' end
+
+nav.navbar.navbar-light.bg-light.rounded
+  = search_form_for(@q, html: { class: 'form-inline w-75', id: 'index-inline-form' }) do |f|
+    .input-group
+      = f.search_field :lbid_or_name_or_status_or_client_lbid_or_client_name_cont, class: 'form-control', placeholder: 'Buscar'
+      .input-group-append
+        a.js-index-submit-link href="#"
+          i.material-icons.input-group-text search
+
+  = link_to new_product_path, class: 'btn-icon btn btn-secondary'
+    i.icon.material-icons add
+
+- if @products.any?
+  #accordion
+    - @products.order('created_at ASC').each do |product|
+      .card.index-card
+        #headingOne.card-header data-target="#collapse#{product.id}" data-toggle="collapse"
+          .card-header--name
+            h5.mb-0 = "#{product.name} (#{product.client.lbid}.#{product.lbid})"
+          icon.header-icon.material-icons keyboard_arrow_down
+        .collapse id="collapse#{product.id}" aria-labelledby="headingOne" data-parent="#accordion"
+          .card-body.index-card--body
+            p = "Categoria: #{product.kind}"
+            p = "Preço: R$ #{('%.2f' % (product.price.to_f / 100)).gsub('.', ',')}"
+            p = "Status: #{product.status}"
+            p = "Entrada: #{product.entry_date.strftime('%d-%m-%Y')}"
+            p = "Saída: #{product.sale_date.nil? ? "" : product.sale_date.strftime('%d-%m-%Y')}"
+            p = "Método de Pagamento: #{product.payment_method}"
+            p = "Status do Pagamento: #{product.payment_status}"
+
+            .w-100
+              .float-right
+                = link_to edit_product_path(product), class: 'btn btn-primary'
+                  | Editar
+                - unless product.status == 'sold' || product.status == 'unavailable'
+                  = link_to pay_product_path(product: product, payment: 'cash'), method: :post, class: 'btn btn-primary'
+                    | Pag Dinheiro
+                  = link_to pay_product_path(product: product, payment: 'card'), method: :post, class: 'btn btn-primary'
+                    | Pag Cartão
+
+- else
+  .container
+    .card
+      .card-body
+        | Ainda não existem produtos

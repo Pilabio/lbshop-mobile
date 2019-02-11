@@ -20,6 +20,8 @@ gem 'slim', '~> 4.0', '>= 4.0.1'
 gem 'devise', '~> 4.5'
 gem 'simple_form', '~> 4.1'
 gem 'json', '~> 2.1'
+gem 'ransack'
+gem 'aasm', '~> 5.0', '>= 5.0.1'
 
 gem 'bootsnap', '>= 1.1.0', require: false
 

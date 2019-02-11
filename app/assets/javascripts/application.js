@@ -16,4 +16,7 @@
 //= require rails-ujs
 //= require activestorage
 //= require turbolinks
+//= require jquery.priceformat
+//= require components/priceMask.js
+//= require components/linkEvents.js
 //= require_tree .
