@@ -8,6 +8,8 @@ Bundler.require(*Rails.groups)
 
 module Lbshop
   class Application < Rails::Application
+    config.time_zone = 'Brasilia'
+    config.i18n.default_locale = :'pt-BR'
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.2
 

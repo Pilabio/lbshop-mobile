@@ -1,0 +1,7 @@
+---
+pt-BR:
+  views:
+    admin_user:
+      roles:
+        entity_admin: Responsável por Entidade
+        super_admin: Administrador Geral
