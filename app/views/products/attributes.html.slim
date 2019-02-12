@@ -5,18 +5,18 @@
     .card.index-card
       #headingOne.card-header data-target="#collapse#{key}" data-toggle="collapse"
         .card-header--name
-          h5.mb-0 = "#{key}"
+          h5.mb-0 = "#{I18n.t("views.product.#{key}")}"
         icon.header-icon.material-icons keyboard_arrow_down
       .collapse id="collapse#{key}" aria-labelledby="headingOne" data-parent="#accordion"
         .card-body.index-card--body
           .card-text = value.split(' ').sort_by { |a| a }.join(', ')
           span.card-divisor
 
-          = simple_form_for(@user, url: add_attributes_path(product_attr: key), method: :post, html: { id: 'attribute-inline-form' }) do |f|
-            .input-group id="attribute-inline-form"
+          = simple_form_for(@user, url: add_attributes_path(product_attr: key), method: :post, html: { id: "js-#{key}-inline-form" }) do |f|
+            .input-group
               .form-label Adicionar atributo:
-              = f.input :products_attr_lists, as: :hidden, label: false, input_html: { class: 'js-form-input--hidden' }
-              input.form-control.js-form-input placeholder="Atributo(s)" type="text"
+              = f.input :products_attr_lists, as: :hidden, label: false, input_html: { class: "js-input--hidden" }
+              input.form-control class="js-input" placeholder="Atributo(s)" type="text"
               .input-group-append
-                a.js-submit-link href="#"
+                a class="js-submit-link" href="#" data-key="#{key}"
                   i.material-icons.input-group-text add

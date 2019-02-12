@@ -5,3 +5,7 @@ pt-BR:
       roles:
         entity_admin: Responsável por Entidade
         super_admin: Administrador Geral
+    product:
+      kind: Categoria
+      size: Tamanho
+      brand: Marca

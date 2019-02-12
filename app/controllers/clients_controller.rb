@@ -24,6 +24,16 @@ class ClientsController < ApplicationController
     @client = Client.find(params[:id])
   end
 
+  def update
+    @client = Client.find(params[:id])
+
+    if @client.update_attributes(permitted_params)
+      redirect_to clients_path
+    else
+      render 'edit'
+    end
+  end
+
   private
 
   def permitted_params
