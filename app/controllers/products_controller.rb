@@ -20,10 +20,17 @@ class ProductsController < ApplicationController
     @product = Product.new(permitted_params)
 
     if @product.save
-      redirect_to clients_path
+      redirect_back fallback_location: { action: "index" }
     else
       render 'new'
     end
+  end
+
+  def destroy
+    product = Product.find(params[:id])
+
+    product.destroy
+    redirect_to products_path
   end
 
   def attributes

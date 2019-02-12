@@ -9,3 +9,12 @@ pt-BR:
       kind: Categoria
       size: Tamanho
       brand: Marca
+      status:
+        available: Disponível
+        sold: Vendido
+        unavailable: Indisponível
+      payment_method:
+        card: Cartão
+        cash: Dinheiro
+      payment_status:
+        pending: Pendente

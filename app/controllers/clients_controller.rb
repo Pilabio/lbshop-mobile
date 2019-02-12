@@ -34,6 +34,13 @@ class ClientsController < ApplicationController
     end
   end
 
+  def destroy
+    client = Client.find(params[:id])
+
+    client.destroy
+    redirect_to clients_path
+  end
+
   private
 
   def permitted_params
