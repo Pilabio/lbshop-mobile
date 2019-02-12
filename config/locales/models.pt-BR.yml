@@ -7,6 +7,7 @@ pt-BR:
         other: Produtos
     attributes:
       product:
+        name: Nome
         kind: Categoria
         price: Preço
         entry_date: Data de entrada

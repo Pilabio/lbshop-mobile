@@ -1,10 +1,10 @@
-= content_for :title do 'Incluir produto' end
+= content_for :title do 'Editar produto' end
 
 .row
   .col-md-6.col-12.mx-auto
     .card
       .card-header
-        | Cadastro
+        | Editar
         = link_to :back, class: 'btn btn-primary btn-sm btn-back float-right'
           i.btn-back-icon.material-icons keyboard_arrow_left
           | Voltar
@@ -32,4 +32,4 @@
                 required: true
             = f.input :price, class: 'form-control', placeholder: 'Preço', input_html: { class: 'js-shipping-field-price' }, as: :hidden
 
-          button.btn.btn-primary type="submit"  Cadastrar
+          button.btn.btn-primary type="submit"  Alterar
