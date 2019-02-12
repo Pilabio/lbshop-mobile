@@ -39,6 +39,16 @@ class ProductsController < ApplicationController
     redirect_to attributes_path
   end
 
+  def delete_attribute
+    attribute = params[:attribute]
+    attr_list_array = current_user.products_attr_lists[attribute].split(' ')
+    attr_list_array.pop
+
+    current_user.products_attr_lists[attribute] = attr_list_array.join(' ')
+    current_user.save
+    redirect_to attributes_path
+  end
+
   def pay_product
     PayProductService.call(params[:product], params[:payment])
 
