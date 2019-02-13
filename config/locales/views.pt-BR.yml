@@ -18,3 +18,4 @@ pt-BR:
         cash: Dinheiro
       payment_status:
         pending: Pendente
+        ready: Liberado
