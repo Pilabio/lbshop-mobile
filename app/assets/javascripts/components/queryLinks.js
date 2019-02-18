@@ -1,4 +1,4 @@
-$(function () {
+$(document).on('turbolinks:load', function() {
   $models = $('.js-query-model');
 
   $models.each(function (index) {
