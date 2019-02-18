@@ -80,7 +80,7 @@ class ProductsController < ApplicationController
     @q = Product.ransack(params[:q])
     @products = @q.result.where(status: 'sold').order('sale_date DESC')
 
-    render 'index'
+    render 'index', actual: 'last_sales'
   end
 
   private

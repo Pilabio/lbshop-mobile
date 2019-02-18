@@ -1,4 +1,7 @@
-- content_for :title do 'Produtos' end
+- if action_name == 'last_sales'
+  - content_for :title do 'Últimas vendas' end
+- else
+  - content_for :title do 'Produtos' end
 
 nav.navbar.navbar-light.bg-light.rounded
   = search_form_for(@q, html: { class: 'form-inline w-75', id: 'index-inline-form' }) do |f|
