@@ -20,7 +20,7 @@ class ProductsController < ApplicationController
     @product = Product.new(permitted_params)
 
     if @product.save
-      redirect_back fallback_location: { action: "index" }
+      redirect_to products_path
     else
       render 'new'
     end
@@ -73,7 +73,14 @@ class ProductsController < ApplicationController
   def pay_product
     PayProductService.call(params[:product], params[:payment])
 
-    redirect_back fallback_location: { action: "index" }
+    redirect_to products_path
+  end
+
+  def last_sales
+    @q = Product.ransack(params[:q])
+    @products = @q.result.where(status: 'sold').order('sale_date DESC')
+
+    render 'index'
   end
 
   private

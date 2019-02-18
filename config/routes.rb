@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
 
-  root to: 'payments#index'
+  root to: 'products#last_sales'
 
   resources :payments, only: :index
   resources :clients
@@ -12,4 +12,6 @@ Rails.application.routes.draw do
   post '/delete_attribute', as: 'delete_attribute', to: 'products#delete_attribute'
 
   post '/pay_product', as: 'pay_product', to: 'products#pay_product'
+
+  get '/last_sales', to: 'products#last_sales'
 end

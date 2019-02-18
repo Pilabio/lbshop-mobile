@@ -13,3 +13,9 @@ nav.navbar.navbar-expand-lg.navbar-light.bg-light.rounded
         = link_to 'Produtos', products_path, class: 'nav-link'
       li.nav-item
         = link_to 'Adicionar atributos', attributes_path, class: 'nav-link'
+      li.nav-item
+        = link_to 'Últimas vendas', last_sales_path, class: 'nav-link'
+      span.nav-divisor
+
+      li.nav-item
+        = link_to 'Logout', destroy_user_session_path, method: :delete, class: 'nav-link'
