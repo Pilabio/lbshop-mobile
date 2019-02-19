@@ -7,6 +7,15 @@ module PayProductService
       @product.change_to_sold!
     end
 
+    def update_payment(client)
+      client.products.each do |product|
+        if product.payment_status == 'pending' && product.sale_date == Date.today - 1.month
+          product.update!(payment_status: 'ready')
+          PaymentService.call(product)
+        end
+      end
+    end
+
     private
 
     def set_payment(method)
@@ -14,6 +23,7 @@ module PayProductService
 
       if method == 'cash'
         @product.payment_status = 'ready'
+        PaymentService.call(@product)
       else
         @product.payment_status = 'pending'
       end
