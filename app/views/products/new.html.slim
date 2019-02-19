@@ -22,6 +22,10 @@
           .form-group
             = f.input :kind, collection: current_user.products_attr_lists["kind"].split(" "), class: 'form-control', placeholder: 'Categoria'
           .form-group
+            = f.input :size, collection: current_user.products_attr_lists["size"].split(" "), class: 'form-control', placeholder: 'Tamanho'
+          .form-group
+            = f.input :brand, collection: current_user.products_attr_lists["brand"].split(" "), class: 'form-control', placeholder: 'Marca'
+          .form-group
             = f.input :entry_date, class: 'form-control', placeholder: 'Data de entrada'
           .form-group.js-parent-transform
             = f.input :formatted_price,

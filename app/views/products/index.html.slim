@@ -25,6 +25,8 @@ nav.navbar.navbar-light.bg-light.rounded
         .collapse id="collapse#{product.id}" aria-labelledby="headingOne" data-parent="#accordion"
           .card-body.index-card--body
             p = "Categoria: #{product.kind}"
+            p = "Tamanho: #{product.size}"
+            p = "Marca: #{product.brand}"
             p = "Preço: R$ #{('%.2f' % (product.price.to_f / 100)).gsub('.', ',')}"
             p = "Status: #{I18n.t("views.product.status.#{product.status}")}"
             p = "Entrada: #{product.entry_date.strftime('%d-%m-%Y')}"

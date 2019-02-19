@@ -9,6 +9,8 @@ pt-BR:
       product:
         name: Nome
         kind: Categoria
+        size: Tamanho
+        brand: Marca
         price: Preço
         entry_date: Data de entrada
         sale_date: Data da venda
