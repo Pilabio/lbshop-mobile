@@ -54,6 +54,7 @@ ActiveRecord::Schema.define(version: 2019_02_19_212507) do
 
   create_table "reports", force: :cascade do |t|
     t.string "name"
+    t.string "kind"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
