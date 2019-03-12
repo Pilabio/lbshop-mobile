@@ -22,6 +22,7 @@ gem 'simple_form', '~> 4.1'
 gem 'json', '~> 2.1'
 gem 'ransack'
 gem 'aasm', '~> 5.0', '>= 5.0.1'
+gem "aws-sdk-s3", require: false
 
 gem 'bootsnap', '>= 1.1.0', require: false
 

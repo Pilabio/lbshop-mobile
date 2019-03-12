@@ -24,7 +24,7 @@
           .form-group
             = f.input :size, collection: current_user.products_attr_lists["size"].split(" "), class: 'form-control', placeholder: 'Tamanho'
           .form-group
-            = f.input :brand, collection: current_user.products_attr_lists["brand"].split(" "), class: 'form-control', placeholder: 'Marca'  
+            = f.input :brand, collection: current_user.products_attr_lists["brand"].split(" "), class: 'form-control', placeholder: 'Marca'
           .form-group
             = f.input :entry_date, class: 'form-control', placeholder: 'Data de entrada'
           .form-group.js-parent-transform
@@ -35,5 +35,8 @@
                 as: :string,
                 required: true
             = f.input :price, class: 'form-control', placeholder: 'Preço', input_html: { class: 'js-shipping-field-price' }, as: :hidden
+          .form-group
+            = f.label :image
+            = f.file_field :image, class: 'form-control-file', placeholder: 'Data de entrada'
 
           button.btn.btn-primary type="submit"  Alterar

@@ -33,6 +33,8 @@ nav.navbar.navbar-light.bg-light.rounded
             p = "Saída: #{product.sale_date.nil? ? "" : product.sale_date.strftime('%d-%m-%Y')}"
             p = "Método de Pagamento: #{product.payment_method.nil? ? "" : "#{I18n.t("views.product.payment_method.#{product.payment_method}")}"}"
             p = "Status do Pagamento: #{product.payment_status.nil? ? "" : "#{I18n.t("views.product.payment_status.#{product.payment_status}")}"}"
+            - if product.image.attached?
+              = link_to 'Download', rails_blob_path(product.image, disposition: "attachment")
 
             .w-100
               .float-right

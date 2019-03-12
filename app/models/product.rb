@@ -1,6 +1,9 @@
 class Product < ApplicationRecord
   include ProductStateMachine
 
+  # :: Attachments
+  has_one_attached :image
+
   # :: Constants
   ACCEPTED_STATUS = %w[available sold unavailable].freeze
 
