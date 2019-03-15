@@ -1,0 +1,30 @@
+- content_for :title do 'Relatórios' end
+
+nav.navbar.navbar-light.bg-light.rounded
+  = search_form_for(@q, html: { class: 'form-inline w-75', id: 'index-inline-form' }) do |f|
+    .input-group
+      = f.search_field :name_cont, class: 'form-control', placeholder: 'Buscar'
+      .input-group-append
+        a.js-index-submit-link href="#"
+          i.material-icons.input-group-text search
+
+  = link_to new_report_path, class: 'btn-icon btn btn-secondary'
+    i.icon.material-icons add
+
+- if @reports.any?
+  #accordion
+    - @reports.each do |report|
+      .card.index-card
+        #headingOne.card-header data-target="#collapse#{report.id}" data-toggle="collapse"
+          .card-header--name
+            h5.mb-0 = ""
+          icon.header-icon.material-icons keyboard_arrow_down
+        .collapse id="collapse#{report.id}" aria-labelledby="headingOne" data-parent="#accordion"
+          .card-body.index-card--body
+            p = "relatorio"
+
+- else
+  .container
+    .card
+      .card-body
+        | Ainda não existem relatórios
