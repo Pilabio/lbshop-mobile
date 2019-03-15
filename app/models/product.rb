@@ -19,4 +19,8 @@ class Product < ApplicationRecord
     products_lbid = self.client.products.count + 1
     self.lbid = sprintf '%03d', products_lbid
   end
+
+  def formatted_price
+    "R$ #{('%.2f' % (price.to_f / 100)).gsub('.', ',')}"
+  end
 end

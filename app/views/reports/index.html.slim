@@ -17,11 +17,12 @@ nav.navbar.navbar-light.bg-light.rounded
       .card.index-card
         #headingOne.card-header data-target="#collapse#{report.id}" data-toggle="collapse"
           .card-header--name
-            h5.mb-0 = ""
+            h5.mb-0 = "#{report.name}"
           icon.header-icon.material-icons keyboard_arrow_down
         .collapse id="collapse#{report.id}" aria-labelledby="headingOne" data-parent="#accordion"
           .card-body.index-card--body
-            p = "relatorio"
+            - if report.report_csv.attached?
+              = link_to 'Download', rails_blob_path(report.report_csv, disposition: "attachment")
 
 - else
   .container

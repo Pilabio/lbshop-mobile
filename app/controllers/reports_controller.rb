@@ -9,4 +9,14 @@ class ReportsController < ApplicationController
   def new
     @report = Report.new
   end
+
+  def create
+    @report = ReportForm.new
+
+    if @report.generate
+      redirect_to reports_path
+    else
+      render 'new'
+    end
+  end
 end

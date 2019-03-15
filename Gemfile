@@ -25,6 +25,7 @@ gem 'aasm', '~> 5.0', '>= 5.0.1'
 gem "aws-sdk-s3", require: false
 
 gem 'bootsnap', '>= 1.1.0', require: false
+gem 'virtus',                   '~> 1.0', '>= 1.0.5'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
