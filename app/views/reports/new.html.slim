@@ -9,12 +9,12 @@
           i.btn-back-icon.material-icons keyboard_arrow_left
           | Voltar
       .card-body
-        = simple_form_for(@report) do |f|
+        = simple_form_for(@report, url: reports_path) do |f|
           .form-group
-            = f.input :start_date, as: :date, class: 'form-control'
+            = f.input :init_date, as: :date, class: 'form-control'
           .form-group
             = f.input :end_date, as: :date, class: 'form-control'
           .form-group
-            = f.input :products_status, class: 'form-control'
+            = f.input :products_status, collection: product_status_collection, class: 'form-control'
 
           button.btn.btn-primary type="submit"  Criar

@@ -7,16 +7,22 @@ class ReportsController < ApplicationController
   end
 
   def new
-    @report = Report.new
+    @report = ReportForm.new
   end
 
   def create
-    @report = ReportForm.new
+    @report = ReportForm.new(permitted_params)
 
     if @report.generate
       redirect_to reports_path
     else
       render 'new'
     end
+  end
+
+  private
+
+  def permitted_params
+    params.require(:report_form).permit(:init_date, :end_date, :products_status)
   end
 end
