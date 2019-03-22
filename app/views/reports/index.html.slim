@@ -12,17 +12,14 @@ nav.navbar.navbar-light.bg-light.rounded
     i.icon.material-icons add
 
 - if @reports.any?
-  #accordion
-    - @reports.each do |report|
-      .card.index-card
-        #headingOne.card-header data-target="#collapse#{report.id}" data-toggle="collapse"
+    - @reports.order('created_at DESC').each do |report|
+      .card.card--report.index-card
+        .card-header.d-flex.align-items-center
           .card-header--name
-            h5.mb-0 = "#{report.name}"
-          icon.header-icon.material-icons keyboard_arrow_down
-        .collapse id="collapse#{report.id}" aria-labelledby="headingOne" data-parent="#accordion"
-          .card-body.index-card--body
-            - if report.report_csv.attached?
-              = link_to 'Download', rails_blob_path(report.report_csv, disposition: "attachment")
+            h6.mb-0 = "#{report.name}"
+          - if report.report_csv.attached?
+            = link_to rails_blob_path(report.report_csv, disposition: "attachment"), class: 'mx-auto'
+              icon.header-icon.material-icons save_alt
 
 - else
   .container

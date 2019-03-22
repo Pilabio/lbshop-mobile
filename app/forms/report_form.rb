@@ -35,14 +35,14 @@ class ReportForm
   def filter_products
     Product.ransack({
       status_cont: products_status,
-      created_at_gteq: init_date.at_beginning_of_day,
-      created_at_lteq: end_date.at_end_of_day
+      entry_date_gteq: init_date.at_beginning_of_day,
+      entry_date_lteq: end_date.at_end_of_day
     }).result
   end
 
   def generate_report_name
-    status = products_status.empty? ? '' : "#{I18n.t("views.product.status.#{products_status}")} "
+    status = products_status.empty? ? '' : "#{I18n.t("views.product.status.#{products_status}")}"
 
-    "Relatório Manual produtos #{status}de #{init_date} à #{end_date}"
+    "Relatório Manual (#{status}) de #{I18n.l(init_date)} à #{I18n.l(end_date)}"
   end
 end
