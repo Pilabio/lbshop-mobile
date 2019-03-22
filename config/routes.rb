@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   resources :clients
   resources :products
   resources :reports
+  resources :users, only: [:edit, :update]
 
   get '/add_attributes', as: 'attributes', to: 'products#attributes'
   post '/add_attributes', as: 'add_attributes', to: 'products#add_attributes'

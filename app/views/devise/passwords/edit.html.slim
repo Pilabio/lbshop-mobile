@@ -1,0 +1,25 @@
+= content_for :title do 'Modificar senha' end
+
+.row
+  .col-md-6.col-12.mx-auto
+    .card
+      .card-header
+        | Atualizar
+        = link_to :back, class: 'btn btn-primary btn-sm btn-back float-right'
+          i.btn-back-icon.material-icons keyboard_arrow_left
+          | Voltar
+      .card-body
+        = simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f|
+          = f.error_notification
+
+          = f.input :reset_password_token, as: :hidden
+          = f.full_error :reset_password_token
+          .form-group
+            = f.input :password,
+                      label: "New password",
+                      required: true,
+                      autofocus: true,
+                      hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
+                      input_html: { autocomplete: "new-password" }
+
+          button.btn.btn-primary type="submit"  Editar
