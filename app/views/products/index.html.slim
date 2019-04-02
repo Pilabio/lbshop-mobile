@@ -16,7 +16,7 @@ nav.navbar.navbar-light.bg-light.rounded
 
 - if @products.any?
   #accordion
-    - @products.order('created_at ASC').each do |product|
+    - @products.order('created_at DESC').each do |product|
       .card.index-card
         #headingOne.card-header data-target="#collapse#{product.id}" data-toggle="collapse"
           .card-header--name
