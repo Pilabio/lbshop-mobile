@@ -1,7 +1,10 @@
 - if action_name == 'last_sales'
   - content_for :title do 'Últimas vendas' end
 - else
-  - content_for :title do 'Produtos' end
+  - content_for :title
+    = 'Produtos'
+    = link_to '#', class: 'btn-header-info', 'data-target': "#exampleModal", 'data-toggle': "modal"
+      i.icon.material-icons info
 
 nav.navbar.navbar-light.bg-light.rounded
   = search_form_for(@q, html: { class: 'form-inline w-75', id: 'index-inline-form' }) do |f|
@@ -55,3 +58,17 @@ nav.navbar.navbar-light.bg-light.rounded
     .card
       .card-body
         | Ainda não existem produtos
+
+#exampleModal.modal.fade role="dialog" tabindex="-1"
+  .modal-dialog role="document"
+    .modal-content
+      .modal-header
+        button.close aria-label="Close" data-dismiss="modal" type="button"
+          span aria-hidden="true"  &times;
+      .modal-body
+        - if @products.any?
+          ul
+            li
+              = "Disponíveis: #{@products.available.count}"
+            li
+              = "Vendidos: #{@products.sold.count}"
