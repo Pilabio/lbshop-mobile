@@ -47,29 +47,6 @@ class ProductsController < ApplicationController
     redirect_to products_path
   end
 
-  def attributes
-    @user = current_user
-    @attributes = current_user.products_attr_lists
-  end
-
-  def add_attributes
-    attribute = params[:user][:products_attr_lists]
-    current_user.products_attr_lists["#{params[:product_attr]}"] << attribute
-
-    current_user.save
-    redirect_to attributes_path
-  end
-
-  def delete_attribute
-    attribute = params[:attribute]
-    attr_list_array = current_user.products_attr_lists[attribute].split(' ')
-    attr_list_array.pop
-
-    current_user.products_attr_lists[attribute] = attr_list_array.join(' ')
-    current_user.save
-    redirect_to attributes_path
-  end
-
   def pay_product
     PayProductService.call(params[:product], params[:payment])
 
