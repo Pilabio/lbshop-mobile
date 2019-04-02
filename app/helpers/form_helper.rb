@@ -1,6 +1,6 @@
 module FormHelper
   def clients_collection
-    Client.all.map { |client| ["#{client.name}(#{client.lbid})", client.id] }
+    Client.all.map { |client| ["(#{client.lbid}) #{client.name}", client.id] }
   end
 
   def product_status_collection
