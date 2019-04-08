@@ -48,7 +48,7 @@ class ProductsController < ApplicationController
   end
 
   def pay_product
-    PayProductService.call(params[:product], params[:payment])
+    PayProductForm.new(permitted_params).set_payment
 
     redirect_to products_path
   end
@@ -63,6 +63,7 @@ class ProductsController < ApplicationController
   private
 
   def permitted_params
-    params.require(:product).permit(:name, :client_id, :kind, :entry_date, :price, :brand, :size, :image)
+    params.require(:product).permit(:name, :client_id, :kind, :entry_date,
+        :sale_date, :price, :brand, :size, :image, :product, :payment)
   end
 end

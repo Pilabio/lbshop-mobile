@@ -1,10 +1,6 @@
 ---
 pt-BR:
   views:
-    admin_user:
-      roles:
-        entity_admin: Responsável por Entidade
-        super_admin: Administrador Geral
     product:
       kind: Categoria
       size: Tamanho
@@ -14,7 +10,8 @@ pt-BR:
         sold: Vendido
         unavailable: Indisponível
       payment_method:
-        card: Cartão
+        credit: Cartão de crédito
+        debit: Cartão de débito
         cash: Dinheiro
       payment_status:
         pending: Pendente
