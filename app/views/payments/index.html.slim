@@ -16,6 +16,8 @@
               p = "Valor a ser repassado: #{payment.price}"
               p = "Valor total: #{payment.total_price}"
 
+    = paginate @payments
+
   - else
     .card
       .card-body

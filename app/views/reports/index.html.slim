@@ -14,6 +14,8 @@
             = link_to rails_blob_path(report.report_csv, disposition: "attachment"), class: 'mx-auto'
               icon.header-icon.material-icons save_alt
 
+    = paginate @reports
+
 - else
   .container
     .card

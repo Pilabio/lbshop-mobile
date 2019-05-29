@@ -3,7 +3,7 @@ class ProductsController < ApplicationController
 
   def index
     @q = Product.ransack(params[:q])
-    @products = @q.result
+    @products = @q.result.page(params[:page])
   end
 
   def new

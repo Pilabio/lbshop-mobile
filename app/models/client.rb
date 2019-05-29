@@ -1,4 +1,7 @@
 class Client < ApplicationRecord
+  # :: Pagination
+  paginates_per 15
+
   # :: Relationships
   has_many :products
   has_many :payments

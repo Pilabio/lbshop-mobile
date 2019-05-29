@@ -1,6 +1,9 @@
 class Product < ApplicationRecord
   include ProductStateMachine
 
+  # :: Pagination
+  paginates_per 15
+
   # :: Attachments
   has_one_attached :image
 
@@ -16,8 +19,8 @@ class Product < ApplicationRecord
   private
 
   def set_lbid
-    products_lbid = self.client.products.count + 1
-    self.lbid = sprintf '%03d', products_lbid
+    products_lbid = client.products.count + 1
+    self.lbid = format '%03d', products_lbid
   end
 
   def formatted_price

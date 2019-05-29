@@ -1,0 +1,6 @@
+- if page.current?
+  li.page-item.disabled
+    a.page-link #{page}
+- else
+  li.page-item
+    = link_to page, url, remote: remote, rel: (page.next? ? 'next' : (page.prev? ? 'prev' : nil)), class: 'page-link'

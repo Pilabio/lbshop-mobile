@@ -29,6 +29,8 @@
                     a.dropdown-item.js-query-link href="#"  Ver produtos
                     = link_to 'Add produtos', new_product_path(client_id: client.id), class: 'dropdown-item'
 
+    = paginate @clients
+
 - else
   .container
     .card
