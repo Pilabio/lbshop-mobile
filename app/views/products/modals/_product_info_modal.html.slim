@@ -1,0 +1,13 @@
+#productInfoModal.modal.fade role="dialog" tabindex="-1"
+  .modal-dialog role="document"
+    .modal-content
+      .modal-header
+        button.close aria-label="Close" data-dismiss="modal" type="button"
+          span aria-hidden="true"  &times;
+      .modal-body
+        - if @products.any?
+          ul
+            li
+              = "Disponíveis: #{@products.available.count}"
+            li
+              = "Vendidos: #{@products.sold.count}"

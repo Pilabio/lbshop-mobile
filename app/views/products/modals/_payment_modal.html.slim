@@ -1,0 +1,13 @@
+#paymentModal.modal.fade role="dialog" tabindex="-1"
+  .modal-dialog role="document"
+    .modal-content
+      .modal-header
+        h5.modal-title Pagamento
+        button.close aria-label="Close" data-dismiss="modal" type="button"
+          span aria-hidden="true"  &times;
+      .modal-body
+        = simple_form_for 'product', url: pay_product_path, method: :post do |f|
+          = f.input :payment, collection: payment_method_collection, label: 'Forma de pagamento'
+          = f.input :sale_date, as: :date, label: 'Data de saída'
+          = f.input :product, as: :hidden, input_html: { class: 'form_modal_product' }
+          = f.submit 'Submit'
