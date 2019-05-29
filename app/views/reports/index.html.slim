@@ -1,15 +1,8 @@
 - content_for :title do 'Relatórios' end
 
-nav.navbar.navbar-light.bg-light.rounded
-  = search_form_for(@q, html: { class: 'form-inline w-75', id: 'index-inline-form' }) do |f|
-    .input-group
-      = f.search_field :name_cont, class: 'form-control', placeholder: 'Buscar'
-      .input-group-append
-        a.js-index-submit-link href="#"
-          i.material-icons.input-group-text search
-
-  = link_to new_report_path, class: 'btn-icon btn btn-secondary'
-    i.icon.material-icons add
+= render partial: 'components/toolbar',
+  locals: { search_params: :name_cont,
+            resource_path: new_report_path }
 
 - if @reports.any?
     - @reports.order('created_at DESC').each do |report|

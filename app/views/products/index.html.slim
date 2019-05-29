@@ -6,16 +6,9 @@
     = link_to '#', class: 'btn-header-info', 'data-target': "#productInfoModal", 'data-toggle': "modal"
       i.icon.material-icons info
 
-nav.navbar.navbar-light.bg-light.rounded
-  = search_form_for(@q, html: { class: 'form-inline w-75', id: 'index-inline-form' }) do |f|
-    .input-group
-      = f.search_field :lbid_or_name_or_status_or_client_lbid_or_client_name_cont, class: 'form-control', placeholder: 'Buscar'
-      .input-group-append
-        a.js-index-submit-link href="#"
-          i.material-icons.input-group-text search
-
-  = link_to new_product_path, class: 'btn-icon btn btn-secondary'
-    i.icon.material-icons add
+= render partial: 'components/toolbar',
+  locals: { search_params: :name_or_lbid_cont,
+            resource_path: new_product_path }
 
 - if @products.any?
   #accordion

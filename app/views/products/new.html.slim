@@ -24,11 +24,11 @@
           .form-group.js-parent-transform
             = f.input :formatted_price,
                 input_html: { class: 'js-br-price js-nested-transform-value',
-                              data: { target: '.js-shipping-field-price' },
+                              data: { target: '.js-tuition-field' },
                               value: f.object.price },
                 as: :string,
                 required: true
-            = f.input :price, class: 'form-control', placeholder: 'Preço', input_html: { class: 'js-shipping-field-price' }, as: :hidden
+            = f.input :price, class: 'form-control', placeholder: 'Preço', input_html: { class: 'js-tuition-field' }, as: :hidden
           .form-group
             = f.file_field :image, class: 'form-control', placeholder: 'Data de entrada'
           button.btn.btn-primary type="submit"  Cadastrar

@@ -1,15 +1,8 @@
 - content_for :title do 'Clientes' end
 
-nav.navbar.navbar-light.bg-light.rounded
-  = search_form_for(@q, html: { class: 'form-inline w-75', id: 'index-inline-form' }) do |f|
-    .input-group
-      = f.search_field :name_or_lbid_cont, class: 'form-control', placeholder: 'Buscar'
-      .input-group-append
-        a.js-index-submit-link href="#"
-          i.material-icons.input-group-text search
-
-  = link_to new_client_path, class: 'btn-icon btn btn-secondary'
-    i.icon.material-icons add
+= render partial: 'components/toolbar',
+  locals: { search_params: :name_or_lbid_or_email_cont,
+            resource_path: new_client_path }
 
 - if @clients.any?
   #accordion

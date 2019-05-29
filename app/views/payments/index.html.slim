@@ -15,18 +15,6 @@
               p = "Status: #{payment.status}"
               p = "Valor a ser repassado: #{payment.price}"
               p = "Valor total: #{payment.total_price}"
-              / .w-100
-              /   .float-right
-              /     = link_to edit_client_path(client), class: 'btn btn-primary'
-              /       | Editar
-              /     = link_to client_path(client), method: :delete, class: 'btn btn-primary'
-              /       | Apagar
-              /
-              /     .btn-group
-              /       button.btn.btn-primary.dropdown-toggle type="button" data-toggle="dropdown" Produtos
-              /       .dropdown-menu aria-labelledby="btnGroupDrop1"
-              /         a.dropdown-item.js-query-link href="#"  Ver produtos
-              /         = link_to 'Add produtos', new_product_path(client_id: client.id), class: 'dropdown-item'
 
   - else
     .card
