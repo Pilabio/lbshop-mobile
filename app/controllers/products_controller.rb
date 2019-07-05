@@ -55,7 +55,7 @@ class ProductsController < ApplicationController
 
   def last_sales
     @q = Product.ransack(params[:q])
-    @products = @q.result.where(status: 'sold').order('sale_date DESC')
+    @products = @q.result.where(status: 'sold').page(params[:page]).order('sale_date DESC')
 
     render 'index', actual: 'last_sales'
   end

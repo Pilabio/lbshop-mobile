@@ -9,6 +9,15 @@ class Client < ApplicationRecord
   # :: Callbacks
   before_create :set_lbid
 
+  def any_sold_product?(init_date, end_date)
+    return false if products.empty?
+
+    sold_products = Product.where(client_id: id,
+                                  sale_date: init_date..end_date,
+                                  status: 'sold')
+    sold_products.any? ? true : false
+  end
+
   private
 
   def set_lbid
