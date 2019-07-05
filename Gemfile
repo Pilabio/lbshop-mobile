@@ -29,7 +29,10 @@ gem 'virtus',          '~> 1.0', '>= 1.0.5'
 group :development, :test do
   gem 'binding_of_caller', '~> 0.8.0'
   gem 'byebug',            platforms: [:mri, :mingw, :x64_mingw]
+  gem 'factory_bot_rails', '~> 5.0', '>= 5.0.2'
   gem 'pry-rails',         '~> 0.3.7'
+  gem 'rspec-rails',       '~> 3.8', '>= 3.8.2'
+  gem 'spring-commands-rspec', '~> 1.0', '>= 1.0.4'
 end
 
 group :development do
@@ -41,9 +44,13 @@ group :development do
 end
 
 group :test do
-  gem 'capybara', '>= 2.15'
+  gem 'capybara',         '>= 2.15'
   gem 'chromedriver-helper'
+  gem 'database_cleaner', '~> 1.7'
+  gem 'faker',            '~> 1.9', '>= 1.9.3'
   gem 'selenium-webdriver'
+  gem 'shoulda-matchers', '~> 4.0', '>= 4.0.1'
+  gem 'valid_attribute',  '~> 2.0'
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
