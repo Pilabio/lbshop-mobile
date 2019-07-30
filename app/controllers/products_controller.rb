@@ -60,6 +60,16 @@ class ProductsController < ApplicationController
     render 'index', actual: 'last_sales'
   end
 
+  def return
+    if params[:id]
+      product = Product.find(params[:id])
+      product.change_to_returned!
+      redirect_to products_path, notice: 'O status foi alterado com sucesso'
+    else
+      redirect_to products_path, alert: 'O status não pode ser alterado, contacte pilabio por favor.'
+    end
+  end
+
   private
 
   def permitted_params

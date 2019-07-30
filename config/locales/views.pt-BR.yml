@@ -9,6 +9,7 @@ pt-BR:
         available: Disponível
         sold: Vendido
         unavailable: Indisponível
+        returned: Devolvido
       payment_method:
         credit: Cartão de crédito
         debit: Cartão de débito

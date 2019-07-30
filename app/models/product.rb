@@ -8,7 +8,7 @@ class Product < ApplicationRecord
   has_one_attached :image
 
   # :: Constants
-  ACCEPTED_STATUS = %w[available sold unavailable].freeze
+  ACCEPTED_STATUS = %w[available sold unavailable returned].freeze
 
   # :: Relationships
   belongs_to :client

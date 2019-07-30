@@ -31,17 +31,24 @@
 
             .w-100
               .float-right
-                = link_to edit_product_path(product), class: 'btn btn-primary'
-                  | Editar
-                = link_to product_path(product), method: :delete, class: 'btn btn-primary'
-                  | Apagar
+                .dropdown
+                  button.btn.btn-primary.dropdown-toggle data-toggle="dropdown" type="button"
+                    | Opções
+                  .dropdown-menu
+                    = link_to edit_product_path(product), class: 'dropdown-item'
+                      | Editar
+                    = link_to product_path(product), method: :delete, class: 'dropdown-item'
+                      | Apagar
 
-                - unless product.status == 'sold' || product.status == 'unavailable'
-                  = link_to 'Pagamento', '#',
-                    class: 'btn btn-secondary js-btn-payment',
-                    'data-target': "#paymentModal",
-                    'data-toggle': "modal",
-                    'data-resource': "#{product.id}"
+                    - unless %w[sold unavailable returned].include?(product.status)
+                      = link_to product_return_path(product), method: :post, class: 'dropdown-item'
+                        | Devolvido
+
+                      = link_to 'Pagamento', '#',
+                        class: 'dropdown-item js-btn-payment',
+                        'data-target': "#paymentModal",
+                        'data-toggle': "modal",
+                        'data-resource': "#{product.id}"
 
   = paginate @products
 
