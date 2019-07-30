@@ -8,14 +8,18 @@ module ProductStateMachine
 
     aasm(:status) do
       state :available, initial: true
-      state :sold, :unavailable
+      state :sold, :unavailable, :returned
 
       event :change_to_sold do
         transitions from: :available, to: :sold
       end
 
-      event :chante_to_unavailable do
+      event :change_to_unavailable do
         transitions from: :available, to: :unavailable
+      end
+
+      event :change_to_returned do
+        transitions from: :available, to: :returned
       end
     end
   end
