@@ -41,7 +41,7 @@
                       | Apagar
 
                     - unless %w[sold unavailable returned].include?(product.status)
-                      = link_to product_return_path(product), method: :post, class: 'dropdown-item'
+                      = link_to product_return_path(product), method: :post, class: 'dropdown-item', data: { confirm: 'Tem certeza que quer retornar o produto?' }
                         | Devolvido
 
                       = link_to 'Pagamento', '#',
