@@ -5,7 +5,7 @@ class ReportForm
   attr_accessor :init_date, :end_date, :products_status
 
   def generate
-    GenerateReportService.call(init_date, end_date, products_status)
+    Generators::GenerateReportService.call(init_date, end_date, products_status)
     true
   rescue => e
     errors.add(:internal, 'Não foi possivel criar relatório');

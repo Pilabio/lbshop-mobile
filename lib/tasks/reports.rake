@@ -9,7 +9,7 @@ namespace :reports do
 
         next unless client.any_sold_product?(init_date, end_date)
 
-        GenerateReportService.call(client, init_date, end_date, '')
+        Generators::GenerateReportService.call(client, init_date, end_date, '')
       end
     end
   end
