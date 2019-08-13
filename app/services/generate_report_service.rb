@@ -8,6 +8,7 @@ module GenerateReportService
       products = filter_products
 
       GenerateCsvService.call(products, report)
+      ReportMailer.sales_report(client, report).deliver_later if @client
     end
 
     private
