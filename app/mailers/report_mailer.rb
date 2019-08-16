@@ -4,6 +4,6 @@ class ReportMailer < ApplicationMailer
   def sales_report(client, report)
     @report = report
     @client = client
-    mail(to: @client.email, subject: "Relatório de vendas do mês de #{I18n.l(Date.today, format: "%B")}")
+    mail(to: @client.email, subject: "Relatório de vendas do mês de #{I18n.l(Date.today-1.month, format: "%B")}")
   end
 end
