@@ -1,5 +1,5 @@
 class ReportMailer < ApplicationMailer
-  default from: 'no-reply@closetdagirafa.com'
+  default from: 'brechoclosetdagirafa@gmail.com'
 
   def sales_report(client, report)
     @report = report
