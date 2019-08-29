@@ -6,7 +6,7 @@ class ReportMailer < ApplicationMailer
     @client      = client
     report_month = I18n.l(Date.today - 1.month, format: '%B')
 
-    attachments["relatorio-#{report_month}.csv"] = {
+    attachments["relatorio-#{report_month.downcase}.csv"] = {
       mime_type: 'text/csv',
       content: @report
     }
