@@ -31,8 +31,8 @@ module GenerateReportService
       Product.ransack({
         status_cont: @status,
         client_id_eq: @client.try(:id),
-        entry_date_gteq: @init_date.at_beginning_of_day,
-        entry_date_lteq: @end_date.at_end_of_day
+        sale_date_gteq: @init_date.at_beginning_of_day,
+        sale_date_lteq: @end_date.at_end_of_day
       }).result
     end
 

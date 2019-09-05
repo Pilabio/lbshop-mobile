@@ -1,4 +1,7 @@
 class Report < ApplicationRecord
+  # :: References
+  belongs_to :client
+
   # :: Pagination
   paginates_per 15
 
