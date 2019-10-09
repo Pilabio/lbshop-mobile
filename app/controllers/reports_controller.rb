@@ -23,6 +23,6 @@ class ReportsController < ApplicationController
   private
 
   def permitted_params
-    params.require(:report_form).permit(:init_date, :end_date, :products_status)
+    params.require(:report_form).permit(:init_date, :end_date, :products_status, :client_id)
   end
 end
