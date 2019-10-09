@@ -23,7 +23,8 @@ module GenerateReportService
         name: generate_report_name,
         products_status: @status,
         init_date: @init_date,
-        end_date: @end_date
+        end_date: @end_date,
+        client: @client
       })
     end
 
